@@ -1,0 +1,36 @@
+# Agent config example
+# Copy to your_client_name.yml and fill in real values
+
+client_id: "example_corp"
+name: "Example Corporation"
+hosting_type: "self_hosted"   # "self_hosted" or "odoo_sh"
+
+# Odoo connection
+odoo:
+  url: "https://odoo.example.com"
+  database: "example_prod"
+  username: "admin"
+  api_key: "your_odoo_api_key_here"
+
+# SSH access (self_hosted only)
+ssh:
+  host: "server.example.com"
+  port: 22
+  user: "odoo"
+  key_path: "~/.ssh/id_rsa"
+
+# Monitoring thresholds
+monitoring:
+  cpu_warning: 70
+  cpu_critical: 85
+  ram_warning: 75
+  ram_critical: 90
+  disk_warning: 80
+  disk_critical: 95
+  check_interval_minutes: 5
+
+# Security audit settings
+security:
+  stale_days: 90
+  forbidden_group_combos:
+    - ["account.group_account_manager", "purchase.group_purchase_manager"]
