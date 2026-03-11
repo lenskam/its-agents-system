@@ -45,4 +45,8 @@ htmlcov/
 
 
 # dev
-docs/dev/
+
+
+# agentic-coding
+.agentic-coding/
+.opencode/

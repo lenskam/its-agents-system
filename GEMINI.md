@@ -1,6 +1,7 @@
 # GEMINI.md – Écosystème d'Agents IA pour Opérations ITS (Version Compressée)
 
 ## 📋 Table des Matières
+
 View file: @file:docs/dev/GEMINI_TECH_DEFS.md
 
 0. [Table des Matières](#0-table-des-matières)
@@ -27,6 +28,7 @@ View file: @file:docs/dev/GEMINI_TECH_DEFS.md
 21. [📝 Historique des Révisions](#21--historique-des-révisions)
 
 ## 📋 Vue d'Ensemble
+
 Système multi-agents IA assistant équipe ITS (support, dev, DevOps, direction) sur Odoo et développements externes.
 
 **Public**: Support N1-3, Développeurs, DevOps, Direction, Clients (limité)
@@ -37,17 +39,17 @@ Système multi-agents IA assistant équipe ITS (support, dev, DevOps, direction)
 
 ## 🛠 Stack Technologique
 
-| Composant | Technologie |
-|-----------|-------------|
-| **Backend** | Python 3.11+, FastAPI |
-| **Frontend** | TypeScript, React 18, TailwindCSS |
-| **Mobile** | Flutter 3.x |
-| **Agents** | CrewAI/AutoGen, LangGraph |
-| **LLM** | Gemini 1.5 Pro/Flash, Ollama (local) |
+| Composant              | Technologie                              |
+| ---------------------- | ---------------------------------------- |
+| **Backend**            | Python 3.11+, FastAPI                    |
+| **Frontend**           | TypeScript, React 18, TailwindCSS        |
+| **Mobile**             | Flutter 3.x                              |
+| **Agents**             | CrewAI/AutoGen, LangGraph                |
+| **LLM**                | Gemini 1.5 Pro/Flash, Ollama (local)     |
 | **Base Connaissances** | Qdrant (vector DB), GitHub, Google Drive |
-| **Base données** | PostgreSQL 15+, Redis 7+ |
-| **Queue** | RabbitMQ |
-| **Infra** | Docker, K8s (opt), GitHub Actions |
+| **Base données**       | PostgreSQL 15+, Redis 7+                 |
+| **Queue**              | RabbitMQ                                 |
+| **Infra**              | Docker, K8s (opt), GitHub Actions        |
 
 ---
 
@@ -86,18 +88,18 @@ graph TB
 
 ```css
 :root {
-  --primary-500: #1a5cff;  /* Bleu principal */
-  --success-500: #10b981;  /* Vert */
-  --warning-500: #f59e0b;  /* Orange */
-  --error-500: #ef4444;    /* Rouge */
-  --info-500: #3b82f6;     /* Bleu info */
-  
+  --primary-500: #1a5cff; /* Bleu principal */
+  --success-500: #10b981; /* Vert */
+  --warning-500: #f59e0b; /* Orange */
+  --error-500: #ef4444; /* Rouge */
+  --info-500: #3b82f6; /* Bleu info */
+
   --gradient-support: linear-gradient(135deg, #667eea, #764ba2);
   --gradient-dev: linear-gradient(135deg, #f093fb, #f5576c);
   --gradient-devops: linear-gradient(135deg, #4facfe, #00f2fe);
-  
-  --font-primary: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+
+  --font-primary: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 ```
 
@@ -124,6 +126,7 @@ Artifacts: GET   /artifacts              POST /artifacts
 ## 📱 Mobile (Flutter)
 
 **2 apps**:
+
 1. **ITS Agent Companion** (interne): Notifications, approbations, métriques, chat
 2. **ITS Client Support** (WhatsApp/Telegram first): Support N1, statut tickets, FAQ
 
@@ -131,13 +134,13 @@ Artifacts: GET   /artifacts              POST /artifacts
 
 ## 🧪 Tests
 
-| Type | Technologie | Couverture |
-|------|-------------|------------|
-| Unitaires | pytest, Jest, flutter_test | 80% |
-| Intégration | pytest + TestContainers | 70% |
-| E2E | Playwright, Patrol | 50% flows |
-| Agents | Évaluation prompts | - |
-| Performance | locust, k6 | Seuils définis |
+| Type        | Technologie                | Couverture     |
+| ----------- | -------------------------- | -------------- |
+| Unitaires   | pytest, Jest, flutter_test | 80%            |
+| Intégration | pytest + TestContainers    | 70%            |
+| E2E         | Playwright, Patrol         | 50% flows      |
+| Agents      | Évaluation prompts         | -              |
+| Performance | locust, k6                 | Seuils définis |
 
 ---
 
@@ -164,6 +167,7 @@ Artifacts: GET   /artifacts              POST /artifacts
 **Principes**: Moindre privilège, défense profonde, traçabilité, validation humaine
 
 **Classification données**:
+
 - Public: Documentation
 - Interne: Métriques agrégées (chiffré)
 - Confidentiel: Données clients (chiffré, accès restreint)
@@ -176,30 +180,34 @@ Artifacts: GET   /artifacts              POST /artifacts
 ## 🤖 Agents IA
 
 ### Pôle Support & Admin Odoo
-| Agent | Rôle | Modèle |
-|-------|------|--------|
-| **Monitoring** | Surveille infra, détecte anomalies | flash |
-| **Sécurité** | Audit quotidien comptes, droits | pro |
-| **Support N1** | FAQ, catégorisation tickets | flash |
-| **Reporting** | Rapports mensuels automatiques | pro |
+
+| Agent          | Rôle                               | Modèle |
+| -------------- | ---------------------------------- | ------ |
+| **Monitoring** | Surveille infra, détecte anomalies | flash  |
+| **Sécurité**   | Audit quotidien comptes, droits    | pro    |
+| **Support N1** | FAQ, catégorisation tickets        | flash  |
+| **Reporting**  | Rapports mensuels automatiques     | pro    |
 
 ### Pôle Développement Odoo
-| Agent | Rôle | Modèle |
-|-------|------|--------|
-| **Backend Odoo** | Modules Python, modèles, API | pro |
-| **Frontend Odoo** | Vues XML, JS (Owl), thèmes | flash |
-| **Mobile Odoo** | Apps Flutter/RN connectées | pro |
-| **Intégration/API** | Connecteurs tiers | pro |
+
+| Agent               | Rôle                         | Modèle |
+| ------------------- | ---------------------------- | ------ |
+| **Backend Odoo**    | Modules Python, modèles, API | pro    |
+| **Frontend Odoo**   | Vues XML, JS (Owl), thèmes   | flash  |
+| **Mobile Odoo**     | Apps Flutter/RN connectées   | pro    |
+| **Intégration/API** | Connecteurs tiers            | pro    |
 
 ### Pôle Développement Custom
-| Agent | Rôle | Modèle |
-|-------|------|--------|
-| **Backend Custom** | API (Node.js, Python, PHP) | pro |
-| **Frontend Custom** | Sites/web apps (React, Vue) | flash |
-| **Mobile Custom** | Apps natives/hybrides | pro |
-| **DevOps** | Infra, déploiements, CI/CD | pro |
+
+| Agent               | Rôle                        | Modèle |
+| ------------------- | --------------------------- | ------ |
+| **Backend Custom**  | API (Node.js, Python, PHP)  | pro    |
+| **Frontend Custom** | Sites/web apps (React, Vue) | flash  |
+| **Mobile Custom**   | Apps natives/hybrides       | pro    |
+| **DevOps**          | Infra, déploiements, CI/CD  | pro    |
 
 ### Orchestrateur Principal
+
 Reçoit demandes, décompose, assigne, suit, restitue (Gemini pro)
 
 ---
@@ -218,14 +226,14 @@ Reçoit demandes, décompose, assigne, suit, restitue (Gemini pro)
 
 ## 📈 Phases Développement
 
-| Phase | Sprints | Objectifs |
-|-------|---------|-----------|
-| **1: Fondations** | 1-4 | Infra, Gemini, Monitoring, Support N1 |
-| **1.5: Base Connaissances** | 2-6 | GitHub/Drive/Qdrant, ingestion |
-| **2: Dev Odoo** | 5-8 | Agents backend/frontend, Web v1, Git |
-| **3: Messaging** | 9-12 | WhatsApp, Telegram, Sécurité, Reporting |
-| **4: Dev Custom** | 13-16 | Agents backend/frontend/mobile custom |
-| **5: Maturité** | 17-20 | DevOps, optimisation, dashboard direction |
+| Phase                       | Sprints | Objectifs                                 |
+| --------------------------- | ------- | ----------------------------------------- |
+| **1: Fondations**           | 1-4     | Infra, Gemini, Monitoring, Support N1     |
+| **1.5: Base Connaissances** | 2-6     | GitHub/Drive/Qdrant, ingestion            |
+| **2: Dev Odoo**             | 5-8     | Agents backend/frontend, Web v1, Git      |
+| **3: Messaging**            | 9-12    | WhatsApp, Telegram, Sécurité, Reporting   |
+| **4: Dev Custom**           | 13-16   | Agents backend/frontend/mobile custom     |
+| **5: Maturité**             | 17-20   | DevOps, optimisation, dashboard direction |
 
 ---
 
@@ -243,12 +251,12 @@ Reçoit demandes, décompose, assigne, suit, restitue (Gemini pro)
 
 ## 📝 Historique Récent
 
-| Date | Version | Changement |
-|------|---------|------------|
-| 20/04/2025 | 2.0.0 | Version finale board |
-| 15/04/2025 | 1.5.0 | Migration Gemini 1.5 Pro |
-| 10/04/2025 | 1.4.0 | Validation humaine workflow |
-| 01/04/2025 | 1.3.0 | Métriques ROI |
+| Date       | Version | Changement                  |
+| ---------- | ------- | --------------------------- |
+| 20/04/2025 | 2.0.0   | Version finale board        |
+| 15/04/2025 | 1.5.0   | Migration Gemini 1.5 Pro    |
+| 10/04/2025 | 1.4.0   | Validation humaine workflow |
+| 01/04/2025 | 1.3.0   | Métriques ROI               |
 
 ---
 
